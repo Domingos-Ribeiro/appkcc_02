@@ -24,33 +24,25 @@ namespace appkcc_02
         public Form1()
         {
             InitializeComponent();
-        }
 
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
+            // Conexão com a base de dados
             DataTable dt = new DataTable();
             Conecta c = new Conecta();
             SSQL = "select * from TClientes;";
-
             listBox1.ValueMember = "Id"; // O Id fica atribuido ao valueMember
-
             dt = c.BuscarDados(SC, SSQL);
             listBox1.DataSource = dt;
             listBox1.DisplayMember = "NomeCliente";
         }
 
-     
-
-        private void label2_Click(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
-
         }
-
-
 
         private void movPersona(object sender, EventArgs e)
         {
+            
             Conecta obj = new Conecta();
             SSQL = "select * from TMovimentos where ClienteId = " + listBox1.SelectedValue;
             dataGridView1.DataSource = obj.BuscarDados(SC, SSQL);
