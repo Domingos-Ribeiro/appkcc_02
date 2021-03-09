@@ -46,5 +46,14 @@ namespace appkcc_02
         {
 
         }
+
+
+
+        private void movPersona(object sender, EventArgs e)
+        {
+            Conecta obj = new Conecta();
+            SSQL = "select * from TMovimentos where ClienteId = " + listBox1.SelectedValue;
+            dataGridView1.DataSource = obj.BuscarDados(SC, SSQL);
+        }
     }
 }
