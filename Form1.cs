@@ -21,6 +21,7 @@ namespace appkcc_02
 
         private string SSQL = "";
 
+        //bool columnFlag = false;
         public Form1()
         {
             InitializeComponent();
@@ -31,9 +32,37 @@ namespace appkcc_02
             Conecta c = new Conecta();
             SSQL = "select * from TClientes;";
             listBox1.ValueMember = "Id"; // O Id fica atribuido ao valueMember
+
+
+
             dt = c.BuscarDados(SC, SSQL);
             listBox1.DataSource = dt;
             listBox1.DisplayMember = "NomeCliente";
+
+        }
+
+        private void FormatarGrid()
+        {
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.ColumnHeadersVisible = true;
+            dataGridView1.RowHeadersVisible = false;
+
+            dataGridView1.Columns[0].Name = "id";
+            dataGridView1.Columns[0].HeaderText = "PK";
+            dataGridView1.Columns["id"].Visible = false;
+            dataGridView1.Columns["id"].Width = 30;
+
+            dataGridView1.Columns[2].HeaderText = "Descrição";
+            dataGridView1.Columns[2].Visible = true;
+            dataGridView1.Columns[2].Width = 360;
+
+            // Retira a coluna do ClientID
+            dataGridView1.Columns[5].Visible = false;
+
+            // Altera o nome do cabeçalho das colunas em baixo
+            dataGridView1.Columns[3].HeaderText = "Débito";
+            dataGridView1.Columns[4].HeaderText = "Crédito";
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -42,10 +71,81 @@ namespace appkcc_02
 
         private void movPersona(object sender, EventArgs e)
         {
-            //avasi buscar od dados à tabela movimentos
+            // Buscar os dados à tabela movimentos
             Conecta obj = new Conecta();
             SSQL = "select * from TMovimentos where ClienteId = " + listBox1.SelectedValue;
+
+            dataGridView1.Columns.Clear();
             dataGridView1.DataSource = obj.BuscarDados(SC, SSQL);
+
+            dataGridView1.Columns.Add("Saldo", "Saldo");
+
+            // Funciona sem a flag
+            //if (columnFlag)
+            //{
+            //    dataGridView1.Columns.Add("Saldo", "Saldo"); // CORRIGIR AQUI!!!!
+            //}
+
+
+            CalcularTotaisDebitoCredito();
+
+            
+
+        }
+
+        private void txtFiltrarCliente_TextChanged(object sender, EventArgs e)
+        {
+            // Reduz a lista de clientes na listBox ao escrever na textBox
+            Conecta c = new Conecta(); // Instanciação, retorna uma dataTable
+            string SSQL = "SELECT * from TClientes Where NomeCliente like '%" + txtFiltrarCliente.Text + "%'";
+            listBox1.DataSource = c.BuscarDados(SC, SSQL);
+
+        }
+
+        void CalcularTotaisDebitoCredito()
+        {
+            double debito = 0;
+            double credito = 0;
+            double totalDebitos = 0;
+            double totalCreditos = 0;
+            int totalLinhas = dataGridView1.Rows.Count;
+
+
+            for (int i = 0; i < totalLinhas; i++)
+            {
+                try
+                {
+                    debito = Convert.ToDouble(dataGridView1.Rows[i].Cells[3].Value);
+                    totalDebitos = totalDebitos + debito;
+                }
+                catch { }
+                try
+                {
+                    credito = Convert.ToDouble(dataGridView1.Rows[i].Cells[4].Value);
+                    totalCreditos = totalCreditos + credito;
+                }
+                catch { }
+            }
+
+            txtCreditos.Text = Convert.ToString(totalCreditos);
+            txtDebitos.Text = Convert.ToString(totalDebitos);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormatarGrid();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Colonias obj = new Colonias();
+            obj.RecolonizarClientes();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Colonias obj = new Colonias();
+            obj.RecolonizarMovimentos();
         }
     }
 }

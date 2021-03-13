@@ -29,13 +29,21 @@ namespace appkcc_02
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtFiltrarCliente = new System.Windows.Forms.TextBox();
+            this.txtDebitos = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtCreditos = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -55,28 +63,28 @@ namespace appkcc_02
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Navy;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.ColumnHeadersHeight = 27;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.CornflowerBlue;
             this.dataGridView1.Location = new System.Drawing.Point(239, 9);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.Size = new System.Drawing.Size(763, 381);
             this.dataGridView1.TabIndex = 1;
             // 
@@ -85,7 +93,7 @@ namespace appkcc_02
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DarkBlue;
-            this.label1.Location = new System.Drawing.Point(33, 11);
+            this.label1.Location = new System.Drawing.Point(33, 91);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(170, 20);
             this.label1.TabIndex = 2;
@@ -96,7 +104,7 @@ namespace appkcc_02
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DarkBlue;
-            this.label2.Location = new System.Drawing.Point(555, 11);
+            this.label2.Location = new System.Drawing.Point(555, 91);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(172, 20);
             this.label2.TabIndex = 2;
@@ -107,17 +115,101 @@ namespace appkcc_02
             this.panel1.BackColor = System.Drawing.Color.CornflowerBlue;
             this.panel1.Controls.Add(this.listBox1);
             this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Location = new System.Drawing.Point(6, 27);
+            this.panel1.Location = new System.Drawing.Point(6, 107);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1009, 398);
             this.panel1.TabIndex = 3;
+            // 
+            // txtFiltrarCliente
+            // 
+            this.txtFiltrarCliente.Location = new System.Drawing.Point(16, 36);
+            this.txtFiltrarCliente.Name = "txtFiltrarCliente";
+            this.txtFiltrarCliente.Size = new System.Drawing.Size(155, 20);
+            this.txtFiltrarCliente.TabIndex = 4;
+            this.txtFiltrarCliente.TextChanged += new System.EventHandler(this.txtFiltrarCliente_TextChanged);
+            // 
+            // txtDebitos
+            // 
+            this.txtDebitos.Location = new System.Drawing.Point(791, 531);
+            this.txtDebitos.Name = "txtDebitos";
+            this.txtDebitos.Size = new System.Drawing.Size(100, 20);
+            this.txtDebitos.TabIndex = 5;
+            this.txtDebitos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(809, 515);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(61, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "DÉBITOS";
+            // 
+            // txtCreditos
+            // 
+            this.txtCreditos.Location = new System.Drawing.Point(909, 531);
+            this.txtCreditos.Name = "txtCreditos";
+            this.txtCreditos.Size = new System.Drawing.Size(100, 20);
+            this.txtCreditos.TabIndex = 7;
+            this.txtCreditos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(923, 515);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(70, 13);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "CREDITOS";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(128, 528);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(100, 23);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Formatar Grid";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(279, 531);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(144, 23);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "Recol Clientes";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(495, 531);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(139, 23);
+            this.button3.TabIndex = 10;
+            this.button3.Text = "Recol Movimentos";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.ClientSize = new System.Drawing.Size(1022, 430);
+            this.ClientSize = new System.Drawing.Size(1022, 563);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.txtCreditos);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtDebitos);
+            this.Controls.Add(this.txtFiltrarCliente);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
@@ -141,6 +233,14 @@ namespace appkcc_02
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox txtFiltrarCliente;
+        private System.Windows.Forms.TextBox txtDebitos;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtCreditos;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }
 
