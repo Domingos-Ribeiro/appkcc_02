@@ -27,7 +27,7 @@ namespace appkcc_02
             InitializeComponent();
 
 
-            // Conexão com a base de dados
+            // Conexão com a base de dados SQL
             DataTable dt = new DataTable();
             Conecta c = new Conecta();
             SSQL = "select * from TClientes;";
