@@ -11,6 +11,8 @@ namespace EfaUtils
         public DataTable BuscarDados(string strConnection, string strSQL)
 
         {
+              
+
                 //criar uma conexão:
                 SqlConnection C = new SqlConnection(strConnection);
                 C.Open();
