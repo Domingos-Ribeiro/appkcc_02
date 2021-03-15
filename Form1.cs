@@ -80,7 +80,7 @@ namespace appkcc_02
 
             dataGridView1.Columns.Add("Saldo", "Saldo");
 
-            // Funciona sem a flag
+            // FUNCIONA SEM A FLAG
             //if (columnFlag)
             //{
             //    dataGridView1.Columns.Add("Saldo", "Saldo"); // CORRIGIR AQUI!!!!
