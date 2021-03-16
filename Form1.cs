@@ -151,8 +151,13 @@ namespace appkcc_02
         private void button4_Click(object sender, EventArgs e)
         {
             Clientes f2 = new Clientes();
-            
             f2.Show();
+            //this.Hide();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
