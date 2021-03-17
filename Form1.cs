@@ -54,7 +54,7 @@ namespace appkcc_02
 
             dataGridView1.Columns[2].HeaderText = "Descrição";
             dataGridView1.Columns[2].Visible = true;
-            dataGridView1.Columns[2].Width = 360;
+            dataGridView1.Columns[2].Width = 345;
 
             // Retira a coluna do ClientID
             dataGridView1.Columns[5].Visible = false;
@@ -151,13 +151,60 @@ namespace appkcc_02
         private void button4_Click(object sender, EventArgs e)
         {
             Clientes f2 = new Clientes();
-            f2.Show();
-            //this.Hide();
+            f2.ShowDialog();
+            
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            
+            CalcularSaldo();
+        }
+
+        // ========= Função para calcular o saldo de cada Cliente ========= // 
+
+        void CalcularSaldo()
+        {
+            int tamanho = dataGridView1.Rows.Count;
+            int debito = 0;
+            int credito = 0;
+            int saldoTotal = 0;
+
+            for (int i = 0; i < tamanho; i++)
+            {
+                // Como alguns dados estarão vazios (credito ou debito) é necessário
+                // Colocar o try Catch
+                try
+                {
+                    debito = Convert.ToInt32(dataGridView1.Rows[i].Cells[3].Value);
+                }
+                catch (Exception)
+                {
+                    debito = 0;
+                }
+
+                try
+                {
+                    credito = Convert.ToInt32(dataGridView1.Rows[i].Cells[4].Value);
+                }
+                catch (Exception)
+                {
+                    credito = 0;
+                }
+
+                saldoTotal = saldoTotal + credito - debito;
+                dataGridView1.Rows[i].Cells[6].Value = saldoTotal;
+            }
+
+            //txtSaldo.Text = saldoTotal.ToString();
+        }
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Mensagem de confirmação da saída do programa com o botão NÃO selecionado.
+            if (DialogResult.Yes == MessageBox.Show("Tem certeza que deseja fechar o programa?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2))
+            {
+                Application.Exit();
+            }
         }
     }
 }
