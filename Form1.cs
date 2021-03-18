@@ -21,11 +21,10 @@ namespace appkcc_02
 
         private string SSQL = "";
 
-        //bool columnFlag = false;
+
         public Form1()
         {
             InitializeComponent();
-
 
             // Conexão com a base de dados SQL
             DataTable dt = new DataTable();
@@ -33,14 +32,50 @@ namespace appkcc_02
             SSQL = "select * from TClientes;";
             listBox1.ValueMember = "Id"; // O Id fica atribuido ao valueMember
 
-
-
             dt = c.BuscarDados(SC, SSQL);
             listBox1.DataSource = dt;
             listBox1.DisplayMember = "NomeCliente";
 
         }
 
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+        }
+
+        // ============== Método para ir à Tabela de Movimentos do SQL buscar os Dados ============== //
+        private void movPersona(object sender, EventArgs e)
+        {
+            // Buscar os dados à tabela movimentos
+            Conecta obj = new Conecta();
+            SSQL = "select * from TMovimentos where ClienteId = " + listBox1.SelectedValue;
+
+            dataGridView1.Columns.Clear();
+            dataGridView1.DataSource = obj.BuscarDados(SC, SSQL);
+
+            dataGridView1.Columns.Add("Saldo", "Saldo");
+
+            CalcularTotaisDebitoCredito();
+
+            CalcularSaldo();
+
+            FormatarGrid();
+        }
+        // =========== FIM do Método para ir à Tabela de Movimentos do SQL buscar os Dados ========== //
+
+
+        // =================== Método para reduzir a lista de Pesquisa dos Clientes ================= //
+        private void txtFiltrarCliente_TextChanged(object sender, EventArgs e)
+        {
+            // Reduz a lista de clientes na listBox ao escrever na textBox
+            Conecta c = new Conecta(); // Instanciação, retorna uma dataTable
+            string SSQL = "SELECT * from TClientes Where NomeCliente like '%" + txtFiltrarCliente.Text + "%'";
+            listBox1.DataSource = c.BuscarDados(SC, SSQL);
+        }
+        // =============== FIM do Método para reduzir a lista de Pesquisa dos Clientes ============== //
+
+
+        // ============================== Método para Formatar a Grid =============================== //
         private void FormatarGrid()
         {
             dataGridView1.AllowUserToAddRows = false;
@@ -62,50 +97,11 @@ namespace appkcc_02
             // Altera o nome do cabeçalho das colunas em baixo
             dataGridView1.Columns[3].HeaderText = "Débito";
             dataGridView1.Columns[4].HeaderText = "Crédito";
-
         }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-        }
-
-        private void movPersona(object sender, EventArgs e)
-        {
-            // Buscar os dados à tabela movimentos
-            Conecta obj = new Conecta();
-            SSQL = "select * from TMovimentos where ClienteId = " + listBox1.SelectedValue;
-
-            dataGridView1.Columns.Clear();
-            dataGridView1.DataSource = obj.BuscarDados(SC, SSQL);
-
-            dataGridView1.Columns.Add("Saldo", "Saldo");
-
-            // FUNCIONA SEM A FLAG
-            //if (columnFlag)
-            //{
-            //    dataGridView1.Columns.Add("Saldo", "Saldo"); // CORRIGIR AQUI!!!!
-            //}
+        // =========================== FIM do Método para Formatar a Grid =========================== //
 
 
-            CalcularTotaisDebitoCredito();
-
-            CalcularSaldo();
-
-            FormatarGrid();
-
-        }
-
-        private void txtFiltrarCliente_TextChanged(object sender, EventArgs e)
-        {
-            // Reduz a lista de clientes na listBox ao escrever na textBox
-            Conecta c = new Conecta(); // Instanciação, retorna uma dataTable
-            string SSQL = "SELECT * from TClientes Where NomeCliente like '%" + txtFiltrarCliente.Text + "%'";
-            listBox1.DataSource = c.BuscarDados(SC, SSQL);
-
-          
-        }
-
-        // ==================  Função para calcular os Totais de DÉBITO e CRÉDITO  ================== // 
+        // ==================  Método para calcular os Totais de DÉBITO e CRÉDITO  ================== // 
         void CalcularTotaisDebitoCredito()
         {
             double debito = 0;
@@ -134,39 +130,10 @@ namespace appkcc_02
             //txtCreditos.Text = Convert.ToString(totalCreditos);
             //txtDebitos.Text = Convert.ToString(totalDebitos);
         }
-        // ==============  FIM da Função para calcular os Totais de DÉBITO e CRÉDITO  =============== // 
+        // ==============  FIM do Método para calcular os Totais de DÉBITO e CRÉDITO  =============== // 
 
-        // ============================  Botões que foram Eliminados  =============================== //
-        private void button1_Click(object sender, EventArgs e)
-        {
-            FormatarGrid();
-        }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Colonias obj = new Colonias();
-            obj.RecolonizarClientes();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Colonias obj = new Colonias();
-            obj.RecolonizarMovimentos();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            Clientes f2 = new Clientes();
-            f2.ShowDialog();
-            
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            CalcularSaldo();
-        }
-
-        // =====================  Função para calcular o saldo de cada Cliente  ===================== // 
+        // =====================  Método para calcular o saldo de cada Cliente  ===================== // 
         void CalcularSaldo()
         {
             int tamanho = dataGridView1.Rows.Count;
@@ -201,7 +168,7 @@ namespace appkcc_02
             }
 
         }
-        // =========================== FIM da Função para calcular saldo  =========================== // 
+        // =========================== FIM do Método para calcular saldo  =========================== // 
 
 
         // ====================================   Menu Strip   ====================================== //
