@@ -35,7 +35,6 @@ namespace appkcc_02
             dt = c.BuscarDados(SC, SSQL);
             listBox1.DataSource = dt;
             listBox1.DisplayMember = "NomeCliente";
-
         }
 
 
@@ -57,9 +56,11 @@ namespace appkcc_02
 
             CalcularTotaisDebitoCredito();
 
+            FormatarGrid();
+
             CalcularSaldo();
 
-            FormatarGrid();
+            
         }
         // =========== FIM do Método para ir à Tabela de Movimentos do SQL buscar os Dados ========== //
 
@@ -71,6 +72,7 @@ namespace appkcc_02
             Conecta c = new Conecta(); // Instanciação, retorna uma dataTable
             string SSQL = "SELECT * from TClientes Where NomeCliente like '%" + txtFiltrarCliente.Text + "%'";
             listBox1.DataSource = c.BuscarDados(SC, SSQL);
+
         }
         // =============== FIM do Método para reduzir a lista de Pesquisa dos Clientes ============== //
 
@@ -97,6 +99,18 @@ namespace appkcc_02
             // Altera o nome do cabeçalho das colunas em baixo
             dataGridView1.Columns[3].HeaderText = "Débito";
             dataGridView1.Columns[4].HeaderText = "Crédito";
+
+            dataGridView1.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridView1.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridView1.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridView1.Sort(dataGridView1.Columns[1], ListSortDirection.Ascending);
+            dataGridView1.Columns["Saldo"].ReadOnly = true;//proteger contra alteração pelo utilizador
+            dataGridView1.Columns["Saldo"].DefaultCellStyle.Font = new Font(dataGridView1.DefaultCellStyle.Font.FontFamily, 9, FontStyle.Bold);
+
+            dataGridView1.Columns[3].DefaultCellStyle.Format = "c2";
+            dataGridView1.Columns[4].DefaultCellStyle.Format = "c2";
+            dataGridView1.Columns[6].DefaultCellStyle.Format = "c2";
         }
         // =========================== FIM do Método para Formatar a Grid =========================== //
 
