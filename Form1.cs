@@ -89,7 +89,9 @@ namespace appkcc_02
 
             CalcularTotaisDebitoCredito();
 
-            
+            CalcularSaldo();
+
+            FormatarGrid();
 
         }
 
@@ -100,8 +102,10 @@ namespace appkcc_02
             string SSQL = "SELECT * from TClientes Where NomeCliente like '%" + txtFiltrarCliente.Text + "%'";
             listBox1.DataSource = c.BuscarDados(SC, SSQL);
 
+          
         }
 
+        // ==================  Função para calcular os Totais de DÉBITO e CRÉDITO  ================== // 
         void CalcularTotaisDebitoCredito()
         {
             double debito = 0;
@@ -127,10 +131,12 @@ namespace appkcc_02
                 catch { }
             }
 
-            txtCreditos.Text = Convert.ToString(totalCreditos);
-            txtDebitos.Text = Convert.ToString(totalDebitos);
+            //txtCreditos.Text = Convert.ToString(totalCreditos);
+            //txtDebitos.Text = Convert.ToString(totalDebitos);
         }
+        // ==============  FIM da Função para calcular os Totais de DÉBITO e CRÉDITO  =============== // 
 
+        // ============================  Botões que foram Eliminados  =============================== //
         private void button1_Click(object sender, EventArgs e)
         {
             FormatarGrid();
@@ -160,8 +166,7 @@ namespace appkcc_02
             CalcularSaldo();
         }
 
-        // ========= Função para calcular o saldo de cada Cliente ========= // 
-
+        // =====================  Função para calcular o saldo de cada Cliente  ===================== // 
         void CalcularSaldo()
         {
             int tamanho = dataGridView1.Rows.Count;
@@ -195,9 +200,11 @@ namespace appkcc_02
                 dataGridView1.Rows[i].Cells[6].Value = saldoTotal;
             }
 
-            //txtSaldo.Text = saldoTotal.ToString();
         }
+        // =========================== FIM da Função para calcular saldo  =========================== // 
 
+
+        // ====================================   Menu Strip   ====================================== //
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Mensagem de confirmação da saída do programa com o botão NÃO selecionado.
@@ -206,5 +213,23 @@ namespace appkcc_02
                 Application.Exit();
             }
         }
+        private void recolocarListaDeClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Colonias obj = new Colonias();
+            obj.RecolonizarClientes();
+        }
+        private void recolocarListaDosMovimentosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Colonias obj = new Colonias();
+            obj.RecolonizarMovimentos();
+        }
+        private void janelaDosClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Clientes f2 = new Clientes();
+            f2.ShowDialog();
+        }
+        // ===================================  FIM do Menu Strip   ================================= //
+
+
     }
 }
