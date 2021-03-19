@@ -60,7 +60,7 @@ namespace appkcc_02
 
             CalcularSaldo();
 
-            
+
         }
         // =========== FIM do Método para ir à Tabela de Movimentos do SQL buscar os Dados ========== //
 
@@ -212,5 +212,90 @@ namespace appkcc_02
         // ===================================  FIM do Menu Strip   ================================= //
 
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+
+            ////MessageBox.Show(Convert.ToString(saldoMenor));
+            //double saldoMenor = 0;
+            //double credito = 1;
+            //double maximo = dataGridView1.Rows.Count;
+
+            //String descricao = "";
+
+            //try
+            //{
+            //    // Vamos assumir que o Movimento com MAIOR valor a Crédito é o que está na primeira linha
+            //    double saldoMaior = Convert.ToDouble(dataGridView1.Rows[0].Cells[4].Value);
+
+
+
+            //    for (int i = 1; i < dataGridView1.Rows.Count -1; i++)
+            //    {
+            //        if (saldoMenor < Convert.ToDouble(dataGridView1.Rows[i].Cells[4].Value))
+            //        {
+            //            saldoMaior = Convert.ToDouble(dataGridView1.Rows[i].Cells[4].Value);
+            //            descricao = Convert.ToString(dataGridView1.Rows[i].Cells[3].Value);
+            //        }
+            //    }
+
+            //}
+            //catch (Exception)
+            //{
+
+            //}
+
+
+            //MessageBox.Show(Convert.ToString(saldoMenor));
+            ////MessageBox.Show(descricao);
+            ///
+
+            string descricao = ""; //string para guardar a descrição
+
+            double creditoMaior; //para guardar o maior crédito
+
+            //afirmação: o maior crédito é o da linha 0:
+
+            bool boolD = double.TryParse(Convert.ToString(dataGridView1.Rows[0].Cells[4].Value), out double valorC);
+
+            if (boolD == false) valorC = 0;
+
+            descricao = Convert.ToString(dataGridView1.Rows[0].Cells[2].Value);
+
+            creditoMaior = valorC;
+
+
+            //no resto da grid, se aparecer um crédito  maior, troca-se:
+
+            for (int i = 1; i < dataGridView1.RowCount; i++)
+
+            {
+
+                boolD = double.TryParse(Convert.ToString(dataGridView1.Rows[i].Cells[4].Value), out valorC);
+                
+                if (boolD == false) valorC = 0;
+
+                
+
+                if (valorC > creditoMaior)
+
+                {
+
+                    creditoMaior = valorC;
+
+
+                    descricao = Convert.ToString(dataGridView1.Rows[i].Cells[2].Value);
+                   dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                }
+
+            }
+
+            //devolver a descrição do documento:
+            
+            MessageBox.Show(descricao.ToString() + "\n\n" + creditoMaior + ".00" );
+
+        }
+
+        
     }
 }
