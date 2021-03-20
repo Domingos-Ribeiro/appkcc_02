@@ -36,6 +36,8 @@ namespace appkcc_02
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.txtFiltrarCliente = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ficheiroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,19 +52,18 @@ namespace appkcc_02
             this.atualizarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.apagarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.janelaDosClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fornecedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.recolocarListaDeClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.recolocarListaDosMovimentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.janelaDosClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.fornecedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnExame = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBox1
@@ -103,7 +104,7 @@ namespace appkcc_02
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(763, 381);
+            this.dataGridView1.Size = new System.Drawing.Size(859, 381);
             this.dataGridView1.TabIndex = 1;
             // 
             // label1
@@ -136,8 +137,28 @@ namespace appkcc_02
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Location = new System.Drawing.Point(6, 60);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1009, 398);
+            this.panel1.Size = new System.Drawing.Size(1101, 398);
             this.panel1.TabIndex = 3;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.txtFiltrarCliente);
+            this.panel2.Location = new System.Drawing.Point(10, 353);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(212, 37);
+            this.panel2.TabIndex = 16;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(1, 12);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(98, 13);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Procurar Cliente";
             // 
             // txtFiltrarCliente
             // 
@@ -160,7 +181,7 @@ namespace appkcc_02
             this.ajudaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1022, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1119, 24);
             this.menuStrip1.TabIndex = 14;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -177,19 +198,19 @@ namespace appkcc_02
             // adicionarToolStripMenuItem
             // 
             this.adicionarToolStripMenuItem.Name = "adicionarToolStripMenuItem";
-            this.adicionarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.adicionarToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.adicionarToolStripMenuItem.Text = "Adicionar";
             // 
             // gravarToolStripMenuItem
             // 
             this.gravarToolStripMenuItem.Name = "gravarToolStripMenuItem";
-            this.gravarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gravarToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.gravarToolStripMenuItem.Text = "Gravar";
             // 
             // sairToolStripMenuItem
             // 
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
@@ -217,38 +238,45 @@ namespace appkcc_02
             this.atualizarToolStripMenuItem,
             this.apagarToolStripMenuItem});
             this.cRUDToolStripMenuItem.Name = "cRUDToolStripMenuItem";
-            this.cRUDToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cRUDToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.cRUDToolStripMenuItem.Text = "CRUD";
             // 
             // criarToolStripMenuItem
             // 
             this.criarToolStripMenuItem.Name = "criarToolStripMenuItem";
-            this.criarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.criarToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.criarToolStripMenuItem.Text = "Criar";
             // 
             // lerToolStripMenuItem
             // 
             this.lerToolStripMenuItem.Name = "lerToolStripMenuItem";
-            this.lerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.lerToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.lerToolStripMenuItem.Text = "Ler";
             // 
             // atualizarToolStripMenuItem
             // 
             this.atualizarToolStripMenuItem.Name = "atualizarToolStripMenuItem";
-            this.atualizarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.atualizarToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.atualizarToolStripMenuItem.Text = "Atualizar";
             // 
             // apagarToolStripMenuItem
             // 
             this.apagarToolStripMenuItem.Name = "apagarToolStripMenuItem";
-            this.apagarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.apagarToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.apagarToolStripMenuItem.Text = "Apagar";
             // 
             // consultasToolStripMenuItem
             // 
             this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
-            this.consultasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.consultasToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.consultasToolStripMenuItem.Text = "Consultas";
+            // 
+            // janelaDosClientesToolStripMenuItem
+            // 
+            this.janelaDosClientesToolStripMenuItem.Name = "janelaDosClientesToolStripMenuItem";
+            this.janelaDosClientesToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.janelaDosClientesToolStripMenuItem.Text = "Janela dos Clientes";
+            this.janelaDosClientesToolStripMenuItem.Click += new System.EventHandler(this.janelaDosClientesToolStripMenuItem_Click);
             // 
             // clientesToolStripMenuItem
             // 
@@ -258,18 +286,6 @@ namespace appkcc_02
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
             this.clientesToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
             this.clientesToolStripMenuItem.Text = "Clientes";
-            // 
-            // fornecedoresToolStripMenuItem
-            // 
-            this.fornecedoresToolStripMenuItem.Name = "fornecedoresToolStripMenuItem";
-            this.fornecedoresToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
-            this.fornecedoresToolStripMenuItem.Text = "Fornecedores";
-            // 
-            // ajudaToolStripMenuItem
-            // 
-            this.ajudaToolStripMenuItem.Name = "ajudaToolStripMenuItem";
-            this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
-            this.ajudaToolStripMenuItem.Text = "Ajuda";
             // 
             // recolocarListaDeClientesToolStripMenuItem
             // 
@@ -285,32 +301,17 @@ namespace appkcc_02
             this.recolocarListaDosMovimentosToolStripMenuItem.Text = "Recolocar Lista dos Movimentos";
             this.recolocarListaDosMovimentosToolStripMenuItem.Click += new System.EventHandler(this.recolocarListaDosMovimentosToolStripMenuItem_Click);
             // 
-            // janelaDosClientesToolStripMenuItem
+            // fornecedoresToolStripMenuItem
             // 
-            this.janelaDosClientesToolStripMenuItem.Name = "janelaDosClientesToolStripMenuItem";
-            this.janelaDosClientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.janelaDosClientesToolStripMenuItem.Text = "Janela dos Clientes";
-            this.janelaDosClientesToolStripMenuItem.Click += new System.EventHandler(this.janelaDosClientesToolStripMenuItem_Click);
+            this.fornecedoresToolStripMenuItem.Name = "fornecedoresToolStripMenuItem";
+            this.fornecedoresToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
+            this.fornecedoresToolStripMenuItem.Text = "Fornecedores";
             // 
-            // label3
+            // ajudaToolStripMenuItem
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(1, 12);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 13);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "Procurar Cliente";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.txtFiltrarCliente);
-            this.panel2.Location = new System.Drawing.Point(10, 353);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(212, 37);
-            this.panel2.TabIndex = 16;
+            this.ajudaToolStripMenuItem.Name = "ajudaToolStripMenuItem";
+            this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.ajudaToolStripMenuItem.Text = "Ajuda";
             // 
             // button1
             // 
@@ -322,12 +323,23 @@ namespace appkcc_02
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnExame
+            // 
+            this.btnExame.Location = new System.Drawing.Point(698, 464);
+            this.btnExame.Name = "btnExame";
+            this.btnExame.Size = new System.Drawing.Size(75, 23);
+            this.btnExame.TabIndex = 16;
+            this.btnExame.Text = "Exame";
+            this.btnExame.UseVisualStyleBackColor = true;
+            this.btnExame.Click += new System.EventHandler(this.btnExame_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.ClientSize = new System.Drawing.Size(1022, 499);
+            this.ClientSize = new System.Drawing.Size(1119, 499);
+            this.Controls.Add(this.btnExame);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -342,10 +354,10 @@ namespace appkcc_02
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -381,6 +393,7 @@ namespace appkcc_02
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnExame;
     }
 }
 

@@ -53,6 +53,7 @@ namespace appkcc_02
             dataGridView1.DataSource = obj.BuscarDados(SC, SSQL);
 
             dataGridView1.Columns.Add("Saldo", "Saldo");
+            dataGridView1.Columns.Add("Produção", "Produção");
 
             CalcularTotaisDebitoCredito();
 
@@ -216,7 +217,8 @@ namespace appkcc_02
         {
             string descricao = "";
             double valorProcurado = 0;
-            double creditoMaior = Convert.ToDouble(dataGridView1.Rows[0].Cells[4].Value);
+            double creditoMaior = 0; // Convert.ToDouble(dataGridView1.Rows[0].Cells[4].Value);
+            double total = creditoMaior;
             descricao = Convert.ToString(dataGridView1.Rows[0].Cells[2].Value);
 
             for (int i = 1; i < dataGridView1.RowCount; i++)
@@ -226,24 +228,72 @@ namespace appkcc_02
                     valorProcurado = Convert.ToDouble(dataGridView1.Rows[i].Cells[4].Value);
 
                     if (valorProcurado > creditoMaior)
-
                     {
                         creditoMaior = valorProcurado;
- 
+                    }
+                    else
+                    {
+                        return;
                     }
                 }
                 catch (Exception)
                 {
-                    descricao = Convert.ToString(dataGridView1.Rows[i].Cells[2].Value);
-                    dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                    
                 }
 
-                //devolver a descrição do documento:
+                if (total <= creditoMaior)
+                {
+                    //devolver a descrição do documento:
 
-                MessageBox.Show(descricao.ToString() + "\n\n" + creditoMaior + ".00");
+                    MessageBox.Show(descricao.ToString() + "\n\n" + total + ".00");
+                }
+                descricao = Convert.ToString(dataGridView1.Rows[i].Cells[2].Value);
+                dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+              
             }
 
         }
+
+        private void btnExame_Click(object sender, EventArgs e)
+        {
+     
+            NovaColuna();
+        }
+
+
+        void NovaColuna()
+        {
+            int tamanho = dataGridView1.Rows.Count; // Percorre a grid
+            int credito = 0; // Variável para armazenar o valor do crédito, visto que é a coluna a procurar
+            string dados = "X"; // String para poder colocar o X na coluna
+
+            for (int i = 0; i < tamanho; i++)
+            {
+
+                try
+                {
+                    // Tentei alterar o valor para dar mais resultados
+                    if (credito < 99)
+                    {
+                        credito = Convert.ToInt32(dataGridView1.Rows[i].Cells[4].Value); 
+                    }
+                     
+                }
+                catch (Exception)
+                {
    
+                }
+
+                dataGridView1.Rows[i].Cells["Produção"].Value = credito;
+
+                if (credito > 99)
+                {
+                    dataGridView1.Rows[i].Cells["Produção"].Value = dados;
+                }
+
+            }
+
+        }
     }
 }
