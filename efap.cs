@@ -8,17 +8,26 @@ namespace EfaUtils
     /// </summary>
     class Conecta
     {
+        private string SC =
+           "data source = 89.154.160.208,62444;" +
+           "Initial Catalog = domingosdb;" +
+           "User Id=efap2;" +
+           "Password=123.Abc.@;";
+
+        public string SSQL = "";
+
+
         public DataTable BuscarDados(string strConnection, string strSQL)
 
         {
               
 
                 //criar uma conexão:
-                SqlConnection C = new SqlConnection(strConnection);
+                SqlConnection C = new SqlConnection(SC);
                 C.Open();
                 //criar comando SQL para extrair os dados pretendidos:
                 SqlCommand command = C.CreateCommand();
-                command.CommandText = strSQL;
+                command.CommandText = SSQL;
 
                 //trazer os dados da tabela especificada para uma "tabela" em memória:
                 SqlDataAdapter da = new SqlDataAdapter(command);
@@ -34,17 +43,27 @@ namespace EfaUtils
 
     class Colonias
     {
+        //private string SC =
+        //    "data source = DOMINGOS\\SQLEXPRESS;" +
+        //    "Initial Catalog = ApkccDB;" +
+        //    "User Id=sa;" +
+        //    "Password=123.Abc.@;";
+
         private string SC =
-            "data source = DOMINGOS\\SQLEXPRESS;" +
-            "Initial Catalog = ApkccDB;" +
-            "User Id=sa;" +
-            "Password=123.Abc.@;";
+          "data source = 89.154.160.208,62444;" +
+          "Initial Catalog = domingosdb;" +
+          "User Id=efap2;" +
+          "Password=123.Abc.@;";
+
+        public string SSQL = "";
+
+
         public void RecolonizarClientes()
         {
 
             //eliminar TODOS os Clientes e TODOS os movimentos:
             string SSQL =
-                "USE[ApkccDB]; " +
+                "USE[domingosdb]; " +
 
                 "DELETE FROM TClientes; " +
                 "DBCC CHECKIDENT(TClientes, reseed, 0); " +
@@ -68,9 +87,9 @@ namespace EfaUtils
 
         public void RecolonizarMovimentos()
         {
-            //use bdkrtonline
+            
             string SSQL =
-              "USE[ApkccDB];" +
+              "USE[domingosdb];" +
               "DELETE FROM TMovimentos; " +
               "DBCC CHECKIDENT(TMovimentos, reseed, 0);" +
               "SET IDENTITY_INSERT[dbo].[TMovimentos] ON; " +

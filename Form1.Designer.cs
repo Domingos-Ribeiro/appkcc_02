@@ -58,8 +58,9 @@ namespace appkcc_02
             this.recolocarListaDosMovimentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fornecedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.produção1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ajudaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
-            this.btnExame = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -178,7 +179,8 @@ namespace appkcc_02
             this.verToolStripMenuItem,
             this.clientesToolStripMenuItem,
             this.fornecedoresToolStripMenuItem,
-            this.ajudaToolStripMenuItem});
+            this.ajudaToolStripMenuItem,
+            this.ajudaToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1119, 24);
@@ -309,9 +311,24 @@ namespace appkcc_02
             // 
             // ajudaToolStripMenuItem
             // 
+            this.ajudaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.produção1ToolStripMenuItem});
             this.ajudaToolStripMenuItem.Name = "ajudaToolStripMenuItem";
-            this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
-            this.ajudaToolStripMenuItem.Text = "Ajuda";
+            this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
+            this.ajudaToolStripMenuItem.Text = "Produções";
+            // 
+            // produção1ToolStripMenuItem
+            // 
+            this.produção1ToolStripMenuItem.Name = "produção1ToolStripMenuItem";
+            this.produção1ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.produção1ToolStripMenuItem.Text = "Produção 1";
+            this.produção1ToolStripMenuItem.Click += new System.EventHandler(this.produção1ToolStripMenuItem_Click);
+            // 
+            // ajudaToolStripMenuItem1
+            // 
+            this.ajudaToolStripMenuItem1.Name = "ajudaToolStripMenuItem1";
+            this.ajudaToolStripMenuItem1.Size = new System.Drawing.Size(50, 20);
+            this.ajudaToolStripMenuItem1.Text = "Ajuda";
             // 
             // button1
             // 
@@ -323,23 +340,12 @@ namespace appkcc_02
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // btnExame
-            // 
-            this.btnExame.Location = new System.Drawing.Point(698, 464);
-            this.btnExame.Name = "btnExame";
-            this.btnExame.Size = new System.Drawing.Size(75, 23);
-            this.btnExame.TabIndex = 16;
-            this.btnExame.Text = "Exame";
-            this.btnExame.UseVisualStyleBackColor = true;
-            this.btnExame.Click += new System.EventHandler(this.btnExame_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
             this.ClientSize = new System.Drawing.Size(1119, 499);
-            this.Controls.Add(this.btnExame);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -393,7 +399,8 @@ namespace appkcc_02
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnExame;
+        private System.Windows.Forms.ToolStripMenuItem ajudaToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem produção1ToolStripMenuItem;
     }
 }
 

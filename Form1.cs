@@ -13,13 +13,10 @@ namespace appkcc_02
 {
     public partial class Form1 : Form
     {
-        private string SC =
-                    "data source = DOMINGOS\\SQLEXPRESS;" +
-                    "Initial Catalog = ApkccDB;" +
-                    "User Id=sa;" +
-                    "Password=123.Abc.@;";
+
 
         private string SSQL = "";
+    
 
 
         public Form1()
@@ -255,15 +252,12 @@ namespace appkcc_02
 
         }
 
-        private void btnExame_Click(object sender, EventArgs e)
-        {
-     
-            NovaColuna();
-        }
+
 
 
         void NovaColuna()
         {
+            // FEITO PARA A PRODUÇÃO
             int tamanho = dataGridView1.Rows.Count; // Percorre a grid
             int credito = 0; // Variável para armazenar o valor do crédito, visto que é a coluna a procurar
             string dados = "X"; // String para poder colocar o X na coluna
@@ -294,6 +288,12 @@ namespace appkcc_02
 
             }
 
+        }
+
+        private void produção1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // FEITO PARA A PRODUÇÃO
+            NovaColuna();
         }
     }
 }
