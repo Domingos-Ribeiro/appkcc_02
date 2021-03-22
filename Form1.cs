@@ -284,7 +284,7 @@ namespace appkcc_02
                 {
    
                 }
-
+                // Ver alteração
                 dataGridView1.Rows[i].Cells["Produção"].Value = credito;
 
                 if (credito > 99)
