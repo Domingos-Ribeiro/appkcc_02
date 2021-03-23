@@ -28,8 +28,8 @@ namespace appkcc_02
             Conecta c = new Conecta();
             SSQL = "select * from TClientes;";
             listBox1.ValueMember = "Id"; // O Id fica atribuido ao valueMember
-
-            dt = c.BuscarDados(SC, SSQL);
+            c.SSQL = SSQL;
+            dt = c.BuscarDados();
             listBox1.DataSource = dt;
             listBox1.DisplayMember = "NomeCliente";
         }
@@ -47,7 +47,8 @@ namespace appkcc_02
             SSQL = "select * from TMovimentos where ClienteId = " + listBox1.SelectedValue;
 
             dataGridView1.Columns.Clear();
-            dataGridView1.DataSource = obj.BuscarDados(SC, SSQL);
+            obj.SSQL = SSQL;
+            dataGridView1.DataSource = obj.BuscarDados();
 
             dataGridView1.Columns.Add("Saldo", "Saldo");
             dataGridView1.Columns.Add("Produção", "Produção");
@@ -69,7 +70,8 @@ namespace appkcc_02
             // Reduz a lista de clientes na listBox ao escrever na textBox
             Conecta c = new Conecta(); // Instanciação, retorna uma dataTable
             string SSQL = "SELECT * from TClientes Where NomeCliente like '%" + txtFiltrarCliente.Text + "%'";
-            listBox1.DataSource = c.BuscarDados(SC, SSQL);
+            c.SSQL = SSQL;
+            listBox1.DataSource = c.BuscarDados();
 
         }
         // =============== FIM do Método para reduzir a lista de Pesquisa dos Clientes ============== //

@@ -17,7 +17,7 @@ namespace EfaUtils
         public string SSQL = "";
 
 
-        public DataTable BuscarDados(string strConnection, string strSQL)
+        public DataTable BuscarDados()
 
         {
               
@@ -43,17 +43,7 @@ namespace EfaUtils
 
     class Colonias
     {
-        //private string SC =
-        //    "data source = DOMINGOS\\SQLEXPRESS;" +
-        //    "Initial Catalog = ApkccDB;" +
-        //    "User Id=sa;" +
-        //    "Password=123.Abc.@;";
-
-        private string SC =
-          "data source = 89.154.160.208,62444;" +
-          "Initial Catalog = domingosdb;" +
-          "User Id=efap2;" +
-          "Password=123.Abc.@;";
+  
 
         public string SSQL = "";
 
@@ -64,7 +54,6 @@ namespace EfaUtils
             //eliminar TODOS os Clientes e TODOS os movimentos:
             string SSQL =
                 "USE[domingosdb]; " +
-
                 "DELETE FROM TClientes; " +
                 "DBCC CHECKIDENT(TClientes, reseed, 0); " +
                 "SET IDENTITY_INSERT[dbo].[TClientes] ON;" +
@@ -81,7 +70,8 @@ namespace EfaUtils
 
             //executa a consulta sql anterior:
             Conecta c = new Conecta();
-            c.BuscarDados(SC, SSQL);
+            c.SSQL = SSQL;
+            c.BuscarDados();
 
         }
 
@@ -106,7 +96,8 @@ namespace EfaUtils
 
             //executa a consulta sql anterior:
             Conecta c = new Conecta();
-            c.BuscarDados(SC, SSQL);
+            c.SSQL = SSQL;
+            c.BuscarDados();
         }
     }
 }
