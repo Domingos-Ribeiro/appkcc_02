@@ -212,51 +212,6 @@ namespace appkcc_02
         // ===================================  FIM do Menu Strip   ================================= //
 
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            string descricao = "";
-            double valorProcurado = 0;
-            double creditoMaior = 0; // Convert.ToDouble(dataGridView1.Rows[0].Cells[4].Value);
-            double total = creditoMaior;
-            descricao = Convert.ToString(dataGridView1.Rows[0].Cells[2].Value);
-
-            for (int i = 1; i < dataGridView1.RowCount; i++)
-            {
-                try
-                {
-                    valorProcurado = Convert.ToDouble(dataGridView1.Rows[i].Cells[4].Value);
-
-                    if (valorProcurado > creditoMaior)
-                    {
-                        creditoMaior = valorProcurado;
-                    }
-                    else
-                    {
-                        return;
-                    }
-                }
-                catch (Exception)
-                {
-                    
-                }
-
-                if (total <= creditoMaior)
-                {
-                    //devolver a descrição do documento:
-
-                    MessageBox.Show(descricao.ToString() + "\n\n" + total + ".00");
-                }
-                descricao = Convert.ToString(dataGridView1.Rows[i].Cells[2].Value);
-                dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
-              
-            }
-
-        }
-
-
-
-
         void NovaColuna()
         {
             // FEITO PARA A PRODUÇÃO
@@ -296,6 +251,48 @@ namespace appkcc_02
         {
             // FEITO PARA A PRODUÇÃO
             NovaColuna();
+        }
+
+        private void comMaiorValorACréditoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Movimento com maior valor a Crédito
+            string descricao = "";
+            double valorProcurado = 0;
+            double creditoMaior = 0; // Convert.ToDouble(dataGridView1.Rows[0].Cells[4].Value);
+            double total = creditoMaior;
+            descricao = Convert.ToString(dataGridView1.Rows[0].Cells[2].Value);
+
+            for (int i = 1; i < dataGridView1.RowCount; i++)
+            {
+                try
+                {
+                    valorProcurado = Convert.ToDouble(dataGridView1.Rows[i].Cells[4].Value);
+
+                    if (valorProcurado > creditoMaior)
+                    {
+                        creditoMaior = valorProcurado;
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+                catch (Exception)
+                {
+
+                }
+
+                if (total <= creditoMaior)
+                {
+                    //devolver a descrição do documento:
+
+                    MessageBox.Show(descricao.ToString() + "\n\n" + total + ".00");
+                }
+                descricao = Convert.ToString(dataGridView1.Rows[i].Cells[2].Value);
+                dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+
+            }
         }
     }
 }

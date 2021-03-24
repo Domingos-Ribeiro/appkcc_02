@@ -56,11 +56,12 @@ namespace appkcc_02
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.recolocarListaDeClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.recolocarListaDosMovimentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.movimentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.comMaiorValorACréditoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fornecedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.produção1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajudaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -284,7 +285,8 @@ namespace appkcc_02
             // 
             this.clientesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.recolocarListaDeClientesToolStripMenuItem,
-            this.recolocarListaDosMovimentosToolStripMenuItem});
+            this.recolocarListaDosMovimentosToolStripMenuItem,
+            this.movimentosToolStripMenuItem});
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
             this.clientesToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
             this.clientesToolStripMenuItem.Text = "Clientes";
@@ -302,6 +304,21 @@ namespace appkcc_02
             this.recolocarListaDosMovimentosToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
             this.recolocarListaDosMovimentosToolStripMenuItem.Text = "Recolocar Lista dos Movimentos";
             this.recolocarListaDosMovimentosToolStripMenuItem.Click += new System.EventHandler(this.recolocarListaDosMovimentosToolStripMenuItem_Click);
+            // 
+            // movimentosToolStripMenuItem
+            // 
+            this.movimentosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.comMaiorValorACréditoToolStripMenuItem});
+            this.movimentosToolStripMenuItem.Name = "movimentosToolStripMenuItem";
+            this.movimentosToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
+            this.movimentosToolStripMenuItem.Text = "Movimentos";
+            // 
+            // comMaiorValorACréditoToolStripMenuItem
+            // 
+            this.comMaiorValorACréditoToolStripMenuItem.Name = "comMaiorValorACréditoToolStripMenuItem";
+            this.comMaiorValorACréditoToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.comMaiorValorACréditoToolStripMenuItem.Text = "Com maior valor a Crédito";
+            this.comMaiorValorACréditoToolStripMenuItem.Click += new System.EventHandler(this.comMaiorValorACréditoToolStripMenuItem_Click);
             // 
             // fornecedoresToolStripMenuItem
             // 
@@ -330,23 +347,12 @@ namespace appkcc_02
             this.ajudaToolStripMenuItem1.Size = new System.Drawing.Size(50, 20);
             this.ajudaToolStripMenuItem1.Text = "Ajuda";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(343, 464);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(240, 23);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Movimento com maior valor a crédito";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
             this.ClientSize = new System.Drawing.Size(1119, 499);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
@@ -398,9 +404,10 @@ namespace appkcc_02
         private System.Windows.Forms.ToolStripMenuItem janelaDosClientesToolStripMenuItem;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStripMenuItem ajudaToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem produção1ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem movimentosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem comMaiorValorACréditoToolStripMenuItem;
     }
 }
 
