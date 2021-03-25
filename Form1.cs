@@ -198,6 +198,8 @@ namespace appkcc_02
         {
             Colonias obj = new Colonias();
             obj.RecolonizarClientes();
+
+
         }
         private void recolocarListaDosMovimentosToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -293,6 +295,11 @@ namespace appkcc_02
 
 
             }
+        }
+
+        private void btnEnviarDadosParaBD_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -9,10 +9,15 @@ namespace EfaUtils
     class Conecta
     {
         private string SC =
-           "data source = 89.154.160.208,62444;" +
-           "Initial Catalog = domingosdb;" +
-           "User Id=efap2;" +
-           "Password=123.Abc.@;";
+        //"data source = 89.154.160.208,62444;" +
+        //"Initial Catalog = domingosdb;" +
+        //"User Id=efap2;" +
+        //"Password=123.Abc.@;";
+
+        "data source = DOMINGOS\\SQLEXPRESS;" +
+        "Initial Catalog = ApkccDB;" +
+        "User Id=sa;" +
+        "Password=123.Abc.@;";
 
         public string SSQL = "";
 
@@ -53,7 +58,7 @@ namespace EfaUtils
 
             //eliminar TODOS os Clientes e TODOS os movimentos:
             string SSQL =
-                "USE[domingosdb]; " +
+                "USE[ApkccDB]; " +
                 "DELETE FROM TClientes; " +
                 "DBCC CHECKIDENT(TClientes, reseed, 0); " +
                 "SET IDENTITY_INSERT[dbo].[TClientes] ON;" +

@@ -21,5 +21,17 @@ namespace appkcc_02
         {
 
         }
+
+        public void SubstituirClientes()
+        {
+            // Vamos substituir um Cliente na Base de Dados, usando uma TextBox na aplicação.
+
+
+
+
+
+
+            // Vamos atualizar lista visualmente
+        }
     }
 }
