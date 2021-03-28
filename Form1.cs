@@ -299,7 +299,106 @@ namespace appkcc_02
 
         private void btnEnviarDadosParaBD_Click(object sender, EventArgs e)
         {
+            //INSERE REGISTO NA BD; SE AS CAIXAS NÃO ESTIVEREM PREENCHIDAS, ASSINALA COM ? ou 0
 
+            //caixa da descrição vazia? colocar um "?":
+
+            if (txtDescricao.Text == "") txtDescricao.Text = "?";
+
+
+
+            //caixa para valor a débito:
+
+            bool resultado1 = Int32.TryParse(txtValorDebito.Text, out int valorDebito);
+
+            if (!resultado1) txtValorDebito.Text = "0";
+
+
+
+            //caixa para valor a débito:
+
+            bool resultado2 = Int32.TryParse(txtValorCredito.Text, out int valorCredito);
+
+            if (!resultado2) txtValorCredito.Text = "0";
+
+
+
+            //DateTime d = dateTimePicker2.Value;
+
+            //string aviso = "ewrerewrwerwer";//string para avisar o utilizador antes de inserir na BD
+
+            ////Datas x = new Datas();
+          
+
+            ////conta nº de dias entre hoje e a data de registo:
+
+            //int n_dias = x.ContarDirerencaDiasEntreDatas(d);//está na classe Datas, namespace efap.cs       
+
+            //if (n_dias == 0) aviso = "Hoje";
+
+            //if (n_dias > 0) aviso = "há " + Convert.ToString(n_dias) + " dias";
+
+            //if (n_dias < 0) aviso = "Atenção! Esta data é no futuro!!!";
+
+
+
+            //string message = d.ToString() + "\n" +
+
+            //            "Cliente: " + lblMovimentos2.Text + "\n" + //PK de cliente
+
+            //            "Data: " + aviso + "\n" +
+
+            //            "Descrição: " + txtDescricao.Text + "\n" +
+
+            //            "Valor débito: " + txtValorDebito.Text + "\n" +
+
+            //            "Valor crédito: " + txtValorCredito.Text + "\n" +
+
+            //            "\n\nCONFIRMA?\n\n"
+
+                        
+
+            string caption = "VERIFIQUE OS DADOS";
+
+            MessageBoxButtons buttons = MessageBoxButtons.YesNoCancel;
+
+            DialogResult result;
+
+            //result = MessageBox.Show(Message, caption, buttons,
+            result = MessageBox.Show(caption);
+
+            //MessageBoxIcon.Question, MessageBoxDefaultButton.Button1); ///  VERIFICAR AQUI!
+            
+
+            if (result == DialogResult.Yes)
+
+            {
+
+                string strSQL = "insert into TMovimentos (DataRegisto, Descricao, ValorDebito, ValorCredito, ClienteId) ";
+
+               // strSQL += " values ('" + d.Date.ToString("yyyy-MM-dd") + "',"
+
+                           //+ "'" + txtDescricao.Text + "',"
+
+                           //+ valorDebito + ","
+
+                           //+ valorCredito + ","
+
+                           //+ listBox1.SelectedValue
+
+                           //+ ")";
+
+                //enviar para a base de dados:
+
+                Conecta c = new Conecta();
+
+                c.BuscarDados();
+
+                //chamar o método que refresca a grid:
+
+               // LstClientesAoClicar(sender, e);
+
+            }
         }
     }
 }

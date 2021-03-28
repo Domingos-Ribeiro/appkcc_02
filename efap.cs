@@ -84,7 +84,7 @@ namespace EfaUtils
         {
             
             string SSQL =
-              "USE[domingosdb];" +
+              "USE[ApkccDB];" +
               "DELETE FROM TMovimentos; " +
               "DBCC CHECKIDENT(TMovimentos, reseed, 0);" +
               "SET IDENTITY_INSERT[dbo].[TMovimentos] ON; " +
