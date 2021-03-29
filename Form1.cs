@@ -299,19 +299,33 @@ namespace appkcc_02
 
         private void btnEnviarDadosParaBD_Click(object sender, EventArgs e)
         {
-            // Alinea a) Recolher e inserir movimento
+            // Alinea a) Recolher e Inserir movimentos
             Conecta obj = new Conecta();
 
-            obj.SSQL = $"insert into TMovimentos(DataRegisto, Descricao, ValorDebito, ValorCredito, ClienteId) values('2021-03-26', '{txtDescricao.Text}', '{txtValorDebito.Text}', '{txtValorCredito.Text}', '{listBox1.SelectedValue}');";
+            // Mensagem de confirmação da inserção de dados.
+            if (DialogResult.Yes == MessageBox.Show("Tem certeza que deseja inserir estes dados?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2))
+            {
+                obj.SSQL = $"insert into TMovimentos(DataRegisto, Descricao, ValorDebito, ValorCredito, ClienteId) values('2021-03-26', '{txtDescricao.Text}', '{txtValorDebito.Text}', '{txtValorCredito.Text}', '{listBox1.SelectedValue}');";
+                MessageBox.Show(obj.SSQL);
+                obj.BuscarDados();
+            }
 
-            MessageBox.Show(obj.SSQL);
-
-            obj.BuscarDados();
-
- 
             // Alinea b) Atualizar a Grid
+            Conecta refresh = new Conecta();
+            SSQL = "select * from TMovimentos where ClienteId = " + listBox1.SelectedValue;
 
+            dataGridView1.Columns.Clear();
+            obj.SSQL = SSQL;
+            dataGridView1.DataSource = obj.BuscarDados();
 
+            dataGridView1.Columns.Add("Saldo", "Saldo");
+            dataGridView1.Columns.Add("Produção", "Produção");
+
+            CalcularTotaisDebitoCredito();
+
+            FormatarGrid();
+
+            CalcularSaldo();
         }
 
         private void btnEliminarMovimento_Click(object sender, EventArgs e)
