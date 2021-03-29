@@ -105,6 +105,26 @@ namespace EfaUtils
             c.BuscarDados();
         }
     }
+
+    class Datas
+
+    {
+
+        // Devolve a diferença entre 1 data e a data atual, em dias
+
+        public int ContarDirerencaDiasEntreDatas(DateTime data)
+
+        {
+
+            DateTime hoje = DateTime.Today;
+
+            TimeSpan diferenca = hoje - data.Date;
+
+            return (Convert.ToInt32(diferenca.TotalDays));
+
+        }
+
+    }
 }
 
 
