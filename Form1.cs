@@ -337,13 +337,34 @@ namespace appkcc_02
             // Alinea b) Dessa linha obter a chave primaria
             int PK = Convert.ToInt32(dataGridView1.Rows[numLinhaNaGrid].Cells[0].Value);
 
+            if (DialogResult.Yes == MessageBox.Show("Tem certeza que deseja ELIMINAR este Movimento?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2))
+            {
+                // Alinea c) Com essa PK eliminar o registo (SQL)
+                string s = $"delete from TMovimentos where Id = '{PK}'";
 
-            // Alinea c) Com essa PK eliminar o registo (SQL)
-            string s = $"delete from TMovimentos where Id = '{PK}'";
+                Conecta obj = new Conecta();
+                obj.SSQL = s;
+                obj.BuscarDados();
 
-            Conecta obj = new Conecta();
-            obj.SSQL = s;
-            obj.BuscarDados();
+                SSQL = "select * from TMovimentos where ClienteId = " + listBox1.SelectedValue;
+
+                dataGridView1.Columns.Clear();
+                obj.SSQL = SSQL;
+
+                // Fazer o refresh á Grid
+                dataGridView1.DataSource = obj.BuscarDados();
+                dataGridView1.Columns.Add("Saldo", "Saldo");
+                dataGridView1.Columns.Add("Produção", "Produção");
+
+                CalcularTotaisDebitoCredito();
+
+                FormatarGrid();
+
+                CalcularSaldo();
+            }
+
+            
+            
 
         }
     }
