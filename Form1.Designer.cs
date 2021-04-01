@@ -65,14 +65,13 @@ namespace appkcc_02
             this.txtDescricao = new System.Windows.Forms.TextBox();
             this.btnEnviarDadosParaBD = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.txtValorCredito = new System.Windows.Forms.TextBox();
             this.txtValorDebito = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.lblMovimentos2 = new System.Windows.Forms.Label();
             this.btnEliminarMovimento = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -381,7 +380,7 @@ namespace appkcc_02
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.RoyalBlue;
-            this.panel3.Controls.Add(this.dateTimePicker2);
+            this.panel3.Controls.Add(this.dateTimePicker1);
             this.panel3.Controls.Add(this.txtValorCredito);
             this.panel3.Controls.Add(this.txtValorDebito);
             this.panel3.Controls.Add(this.txtDescricao);
@@ -395,12 +394,12 @@ namespace appkcc_02
             this.panel3.Size = new System.Drawing.Size(1098, 73);
             this.panel3.TabIndex = 20;
             // 
-            // dateTimePicker2
+            // dateTimePicker1
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(31, 37);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 18;
+            this.dateTimePicker1.Location = new System.Drawing.Point(31, 37);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 18;
             // 
             // txtValorCredito
             // 
@@ -460,13 +459,6 @@ namespace appkcc_02
             this.label6.TabIndex = 0;
             this.label6.Text = "Descrição do Movimento";
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(0, 0);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 21;
-            // 
             // lblMovimentos2
             // 
             this.lblMovimentos2.AutoSize = true;
@@ -485,6 +477,7 @@ namespace appkcc_02
             this.btnEliminarMovimento.TabIndex = 23;
             this.btnEliminarMovimento.Text = "Eliminar Movimento";
             this.btnEliminarMovimento.UseVisualStyleBackColor = true;
+            this.btnEliminarMovimento.Click += new System.EventHandler(this.btnEliminarMovimento_Click);
             // 
             // Form1
             // 
@@ -494,7 +487,6 @@ namespace appkcc_02
             this.ClientSize = new System.Drawing.Size(1119, 625);
             this.Controls.Add(this.btnEliminarMovimento);
             this.Controls.Add(this.lblMovimentos2);
-            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.btnEnviarDadosParaBD);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.label2);
@@ -563,9 +555,8 @@ namespace appkcc_02
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label lblMovimentos2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button btnEliminarMovimento;
     }
 }

@@ -305,8 +305,8 @@ namespace appkcc_02
             // Mensagem de confirmação da inserção de dados.
             if (DialogResult.Yes == MessageBox.Show("Tem certeza que deseja inserir estes dados?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2))
             {
-                obj.SSQL = $"insert into TMovimentos(DataRegisto, Descricao, ValorDebito, ValorCredito, ClienteId) values('2021-03-26', '{txtDescricao.Text}', '{txtValorDebito.Text}', '{txtValorCredito.Text}', '{listBox1.SelectedValue}');";
-                MessageBox.Show(obj.SSQL);
+                obj.SSQL = $"insert into TMovimentos(DataRegisto, Descricao, ValorDebito, ValorCredito, ClienteId) values('{dateTimePicker1.Value.ToString("yyyy/MM/dd")}', '{txtDescricao.Text}', '{txtValorDebito.Text}', '{txtValorCredito.Text}', '{listBox1.SelectedValue}');";
+                
                 obj.BuscarDados();
             }
 
@@ -330,6 +330,20 @@ namespace appkcc_02
 
         private void btnEliminarMovimento_Click(object sender, EventArgs e)
         {
+            // Alinea a) Obter numero da linha corrente.
+            int numLinhaNaGrid = dataGridView1.CurrentRow.Index;
+
+
+            // Alinea b) Dessa linha obter a chave primaria
+            int PK = Convert.ToInt32(dataGridView1.Rows[numLinhaNaGrid].Cells[0].Value);
+
+
+            // Alinea c) Com essa PK eliminar o registo (SQL)
+            string s = $"delete from TMovimentos where Id = '{PK}'";
+
+            Conecta obj = new Conecta();
+            obj.SSQL = s;
+            obj.BuscarDados();
 
         }
     }
