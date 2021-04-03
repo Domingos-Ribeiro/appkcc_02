@@ -306,11 +306,10 @@ namespace appkcc_02
             if (DialogResult.Yes == MessageBox.Show("Tem certeza que deseja inserir estes dados?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2))
             {
                 obj.SSQL = $"insert into TMovimentos(DataRegisto, Descricao, ValorDebito, ValorCredito, ClienteId) values('{dateTimePicker1.Value.ToString("yyyy/MM/dd")}', '{txtDescricao.Text}', '{txtValorDebito.Text}', '{txtValorCredito.Text}', '{listBox1.SelectedValue}');";
-                
                 obj.BuscarDados();
             }
 
-            // Alinea b) Atualizar a Grid
+            // Alinea b) Atualizar a Grid.
             Conecta refresh = new Conecta();
             SSQL = "select * from TMovimentos where ClienteId = " + listBox1.SelectedValue;
 
