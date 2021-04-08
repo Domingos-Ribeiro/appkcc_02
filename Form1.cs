@@ -298,7 +298,7 @@ namespace appkcc_02
         }
 
         private void btnEnviarDadosParaBD_Click(object sender, EventArgs e)
-        {
+        {   // Dividir o problema em partes...
             // Alinea a) Recolher e Inserir movimentos
             Conecta obj = new Conecta();
 
