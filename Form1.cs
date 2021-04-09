@@ -366,5 +366,8 @@ namespace appkcc_02
             
 
         }
+
+        //Form.show.dialog obriga o utilizador a fechar o form para poder ir ou voltar para o anterior.
+
     }
 }
