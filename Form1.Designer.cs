@@ -74,6 +74,7 @@ namespace appkcc_02
             this.label6 = new System.Windows.Forms.Label();
             this.lblMovimentos2 = new System.Windows.Forms.Label();
             this.btnEliminarMovimento = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -479,12 +480,22 @@ namespace appkcc_02
             this.btnEliminarMovimento.UseVisualStyleBackColor = true;
             this.btnEliminarMovimento.Click += new System.EventHandler(this.btnEliminarMovimento_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(230, 591);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 24;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
             this.ClientSize = new System.Drawing.Size(1119, 625);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnEliminarMovimento);
             this.Controls.Add(this.lblMovimentos2);
             this.Controls.Add(this.btnEnviarDadosParaBD);
@@ -558,6 +569,7 @@ namespace appkcc_02
         private System.Windows.Forms.Label lblMovimentos2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button btnEliminarMovimento;
+        private System.Windows.Forms.Button button1;
     }
 }
 
